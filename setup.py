@@ -17,10 +17,5 @@ setup(
     maintainer_email='marudhupaandian@gmail.com',
     description='TODO: Package description',
     license='MIT',
-    tests_require=[],
-    entry_points={
-        'console_scripts': [
-            "waypoint_logger:waypoint_logger.py:main"
-        ],
-    },
+    tests_require=['pytest'],
 )
