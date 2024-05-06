@@ -18,4 +18,9 @@ setup(
     description='TODO: Package description',
     license='MIT',
     tests_require=['pytest'],
+    entry_points={
+        'console_scripts': [
+            'waypoint_logger=waypoint_logger.waypoint_logger:main'
+        ],
+    },
 )
