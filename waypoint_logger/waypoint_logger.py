@@ -35,12 +35,14 @@ class WaypointLogger(Node):
                                         data.pose.pose.position.y,
                                         euler[2],
                                         speed))
-        
 
-if __name__ == "__main__":
 
+def main():
     rclpy.init()
     rclpy.spin(WaypointLogger())
     rclpy.shutdown()
     print("exiting")
 
+
+if __name__ == "__main__":
+    main()
