@@ -3,7 +3,6 @@ import rclpy
 import numpy as np
 from nav_msgs.msg import Odometry
 from numpy import linalg as LA
-from tf_transformations import euler_from_quaternion
 from os.path import expanduser
 from time import gmtime, strftime
 
@@ -18,13 +17,6 @@ class WaypointLogger(Node):
         self.get_logger().info("node initialized")
 
     def save_waypoint(self, data):
-
-        quaternion = np.array([data.pose.pose.orientation.x, 
-                            data.pose.pose.orientation.y, 
-                            data.pose.pose.orientation.z, 
-                            data.pose.pose.orientation.w])
-
-        euler = euler_from_quaternion(quaternion)
         speed = LA.norm(np.array([data.twist.twist.linear.x, 
                                 data.twist.twist.linear.y, 
                                 data.twist.twist.linear.z]),2)
@@ -33,7 +25,6 @@ class WaypointLogger(Node):
 
         self.file.write('%f, %f, %f, %f\n' % (data.pose.pose.position.x,
                                         data.pose.pose.position.y,
-                                        euler[2],
                                         speed))
 
 
